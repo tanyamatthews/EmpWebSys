@@ -16,7 +16,7 @@
 	
 	</div>
 
-	<form action="login-process" method="POST">
+	<form action="login-process" method="POST" class="modal-form">
 		<fieldset>
 			<legend class="sr-only">Login form</legend>
 			<div class="form__group clearfix">

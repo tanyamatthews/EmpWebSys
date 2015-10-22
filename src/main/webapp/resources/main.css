@@ -88,6 +88,9 @@ table {
 /*Main------------------------------------------------
 ----------------------------------------------------*/
 
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
+@import url('http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css');
+
 html{
 	font-size: 62.5%;
 }
@@ -108,7 +111,7 @@ body{
 	
 }
 
-form{
+.modal-form{
 	margin-left:23%;
 	display:block;
 	background-color: white;
@@ -169,6 +172,58 @@ input, .btn{
 .form__group{
 	margin: 20px 0;
 }
+
+/*Admin page-----------------------------------------
+----------------------------------------------------*/
+
+main {
+  width:960px;
+  padding: 30px;
+  margin: 0 auto;
+  background: #fff;
+  margin-top:30px;
+}
+
+section {
+  display: none;
+  padding: 20px 0 0;
+  border-top: 1px solid #ddd;
+}
+
+label {
+  display: inline-block;
+  text-align: center;
+  border: 1px solid transparent;
+}
+
+
+label:hover {
+  color: #888;
+  cursor: pointer;
+}
+
+input:checked + label {
+  color: #555;
+  border: 1px solid #ddd;
+  border-top: 2px solid #b6da4d;
+  border-bottom: 1px solid #fff;
+}
+
+#tab1:checked ~ #content1,
+#tab2:checked ~ #content2,
+#tab3:checked ~ #content3,
+#tab4:checked ~ #content4,
+#tab5:checked ~ #content5,
+#tab6:checked ~ #content6   {
+  display: block;
+}
+
+.tab-item{
+	padding: 15px;
+}
+
+
+
 
 
 
