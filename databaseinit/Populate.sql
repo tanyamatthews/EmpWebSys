@@ -159,6 +159,30 @@ VALUES (Pname, Sdate, Edate);
 end //
 DELIMITER ;
 
+DELIMITER //
+CREATE PROCEDURE removeProject(
+	PID int(11)
+)
+BEGIN
+DELETE FROM project
+WHERE project_id=PID;
+end //
+DELIMITER ;
+
+DELIMITER // 
+CREATE PROCEDURE updateProject(
+	PID int(11),
+	PNAME varchar(30),
+	SDATE datetime,
+	EDATE datetime
+)
+BEGIN
+	UPDATE project
+	SET name = PNAME, start_date = SDATE, end_date = EDATE
+	WHERE project_id = PID;
+end //
+DELIMITER ;
+
 DELIMITER // 
 CREATE PROCEDURE assignToProject (
 	EID int(11),
