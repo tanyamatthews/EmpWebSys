@@ -1,0 +1,1 @@
+GRANT ALL on `EmployeeSystems`.* to 'EmployeeUser'@'localhost' identified by 'password';
