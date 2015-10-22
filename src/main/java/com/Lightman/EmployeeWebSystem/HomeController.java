@@ -2,9 +2,6 @@ package com.Lightman.EmployeeWebSystem;
 
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.text.DateFormat;
-import java.util.Date;
-import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -26,7 +23,7 @@ public class HomeController {
 
 	@Autowired
 	private DataSource dataSource;
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+
 
 	/**
 	 * Simply selects the home view to render by returning its name.
@@ -53,10 +50,16 @@ public class HomeController {
 		return "accountCreated";
 	}
 **/
-
+	/**
+	 * 
+	 * @param model
+	 * @param request
+	 * @param response
+	 * @return
+	 */
 	@RequestMapping(value = "/dashboard", method = RequestMethod.POST)
-	public String loginProcess(Model m, HttpServletRequest request, HttpServletResponse response) {
-		String msg = "Access Denied";
+	public String loginProcess(Model model, HttpServletRequest request, HttpServletResponse response) {
+		String msg = "Access Denied, Please try again";
 		String adminUser = "admin";
 		String financeUser = "finance";
 		String chrisUser = "chrisr";
@@ -78,14 +81,17 @@ public class HomeController {
 		}
 		
 		if((loginSuccessfull) && (currentUser.equals(adminUser))){
+			msg = "Login Successful";
 			home = "adminHome";
 		}else if((loginSuccessfull) && (currentUser.equals(financeUser))){
+			msg = "Login Successful";
 			home = "financeHome";
 		}else if((loginSuccessfull) && (currentUser.equals(chrisUser))){
+			msg = "Login Successful";
 			home= "chrisHome";
 		}
 
-		m.addAttribute("msg", msg);
+		model.addAttribute("msg", msg);
 		return home;
 
 	}
