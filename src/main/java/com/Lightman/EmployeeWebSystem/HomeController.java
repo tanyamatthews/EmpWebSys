@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.Lightman.Data.IEmployeeSystemMapper;
 
@@ -44,10 +46,26 @@ public class HomeController {
 		return "home";
 	}
 	
+	
+	@RequestMapping(value = "/deleteEmployee", method = RequestMethod.GET)  
+	 public @ResponseBody  
+	 String hello(@RequestParam(value = "id") String id)
+ {  
+	  int employeeId = Integer.parseInt(id);
+	  employeeSystem.deleteEmployeeWith(employeeId);
+	  String str = "Employee Deleted";  
+	  return str;  
+	  
+	 }  
+	
 	@RequestMapping(value = "/allEmployees", method = RequestMethod.GET)
-	public String getAllEmployees(Model model) {
-		model.addAttribute("employees", employeeSystem.getAllEmployees());
-		return "allEmployees";
+	public String getAllEmployees(Model model, HttpServletRequest request) {
+		
+		if (request.getSession().getAttribute("login") != null){
+			model.addAttribute("employees", employeeSystem.getAllEmployees());
+			return "allEmployees";
+		}
+		return "redirect:/";
 	}
 
 /**

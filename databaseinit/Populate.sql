@@ -5,22 +5,25 @@ INSERT INTO project VALUES('','Project3','2017-01-01','2017-12-10');
 INSERT INTO project VALUES('','Project4','2017-01-01','2017-12-10');
 INSERT INTO project VALUES('','Project5','2017-01-01','2017-12-10');
 INSERT INTO project VALUES('','Project6','2017-01-01','2017-12-10');
-INSERT INTO employee VALUES('','1995-04-14','Employee','One','Mr','admin','15000');
-INSERT INTO employee VALUES('','1995-05-14','Employee','Two','Mrs','admin','15000');
-INSERT INTO employee VALUES('','1995-06-14','Employee','Three','Master','finance','15000');
-INSERT INTO employee VALUES('','1995-07-14','Employee','Four','Miss','finance','15000');
-INSERT INTO employee VALUES('','1995-08-14','Employee','Five','Mr','career','15000');
-INSERT INTO employee VALUES('','1995-09-14','Employee','Six','Mr','career','15000');
+
+INSERT INTO `employee` (`DateOfBirth`,`F_name`,`L_name`,`Title`,`Salary`) VALUES ("2015-12-02","Reece","Elliott","Mr.","54034"),("2016-05-29","Sylvester","Pierce","Mr.","61439"),("2016-03-09","Lars","Brennan","Mrs.","80771"),("2016-03-24","Wyatt","Huff","Ms.","76316"),("2016-02-05","Carter","Keller","Ms.","42252"),("2014-11-18","Carl","Ellison","Mr.","22339"),("2015-01-25","Kareem","Blair","Dr.","94379"),("2015-06-18","Thomas","Larsen","Mr.","84856"),("2016-06-04","Talon","Hampton","Dr.","97445"),("2015-11-29","Sylvester","Wilder","Mrs.","69531");
+INSERT INTO `employee` (`DateOfBirth`,`F_name`,`L_name`,`Title`,`Salary`) VALUES ("2015-06-13","Driscoll","Bentley","Mr.","19749"),("2015-12-21","Lee","Delacruz","Dr.","86549"),("2015-01-31","Bradley","Paul","Mr.","82655"),("2015-10-29","Lars","May","Mr.","62126"),("2016-02-18","Josiah","Garrison","Ms.","55340"),("2016-02-28","Jamal","Nguyen","Mr.","67173"),("2015-04-15","Mannix","Duran","Dr.","87359"),("2015-10-29","Bradley","Pacheco","Mr.","58395"),("2015-07-14","Yasir","Nichols","Ms.","37108"),("2015-01-26","Ulysses","Herring","Mr.","41056");
+INSERT INTO `employee` (`DateOfBirth`,`F_name`,`L_name`,`Title`,`Salary`) VALUES ("2015-09-20","Phelan","Marquez","Dr.","81604"),("2014-10-28","Oliver","Petersen","Mr.","2376"),("2014-12-24","Palmer","Gamble","Dr.","48071"),("2015-10-19","Reed","Burch","Mr.","66518"),("2016-03-29","Rudyard","Stone","Mr.","44576"),("2014-12-22","Chancellor","Park","Mr.","53182"),("2016-02-21","Shad","Gray","Dr.","9515"),("2015-05-06","Bruce","Hall","Ms.","13375"),("2016-07-14","Gannon","Shaw","Mrs.","95992"),("2015-10-19","Valentine","Watson","Ms.","83121");
+INSERT INTO `employee` (`DateOfBirth`,`F_name`,`L_name`,`Title`,`Salary`) VALUES ("2016-01-21","Fletcher","Avila","Dr.","83047"),("2016-08-23","Gage","Kirby","Mr.","54161"),("2015-12-28","Darius","Patton","Dr.","53653"),("2016-07-24","Shad","Pearson","Ms.","33262"),("2014-10-30","Steven","Moran","Dr.","34135"),("2016-10-06","Tiger","Oliver","Ms.","36151"),("2015-04-23","Ivan","Gutierrez","Mrs.","59283"),("2015-09-11","Caleb","Kirby","Ms.","7359"),("2015-09-22","Michael","George","Ms.","67316"),("2015-10-17","Evan","Watkins","Dr.","48926");
+INSERT INTO `employee` (`DateOfBirth`,`F_name`,`L_name`,`Title`,`Salary`) VALUES ("2016-02-05","Kenyon","Sampson","Dr.","41598"),("2015-02-02","Oscar","Carrillo","Dr.","17593"),("2016-07-12","James","Russell","Mrs.","80538"),("2016-02-07","Guy","Snow","Ms.","47154"),("2016-01-29","Xavier","Hooper","Mr.","19324"),("2015-05-17","Ezekiel","Sears","Mrs.","1507"),("2015-12-09","Boris","Burt","Ms.","74637"),("2015-08-20","Hilel","Frye","Mr.","61788"),("2015-12-14","Randall","Kennedy","Mrs.","95763"),("2014-12-24","Victor","Peck","Dr.","24393");
+INSERT INTO `employee` (`DateOfBirth`,`F_name`,`L_name`,`Title`,`Salary`) VALUES ("2015-07-30","Griffin","Horton","Mrs.","48513"),("2016-06-21","Hector","Odonnell","Ms.","55310"),("2014-11-11","Malachi","Montoya","Ms.","99863"),("2015-05-31","Lucian","Griffith","Dr.","53999"),("2014-12-17","Jackson","Greer","Ms.","6267"),("2015-11-03","Lester","Miles","Ms.","67760"),("2015-04-22","Zeus","Bentley","Ms.","40368"),("2016-03-13","Malik","King","Dr.","36844"),("2016-07-11","Lucian","Barrett","Mr.","3769"),("2015-06-18","Anthony","Robbins","Dr.","48897");
+INSERT INTO `employee` (`DateOfBirth`,`F_name`,`L_name`,`Title`,`Salary`) VALUES ("2015-06-13","Dean","Boyle","Mrs.","37054"),("2016-09-18","Henry","Hahn","Ms.","24423"),("2015-08-28","Talon","Espinoza","Ms.","71585"),("2016-04-12","Lester","Pollard","Mr.","29639"),("2015-06-21","Nehru","Crosby","Ms.","47931"),("2016-05-18","Ali","Mckee","Ms.","98423"),("2015-06-22","Jameson","Vargas","Dr.","31342"),("2016-04-12","Aladdin","Mcfarland","Ms.","26770"),("2015-09-09","Akeem","Alvarez","Ms.","43581"),("2015-02-22","Vernon","Bruce","Dr.","82442");
+INSERT INTO `employee` (`DateOfBirth`,`F_name`,`L_name`,`Title`,`Salary`) VALUES ("2015-09-28","Hilel","Beck","Mrs.","13917"),("2016-10-16","Castor","Gallegos","Ms.","51014"),("2015-05-19","Ivor","Drake","Dr.","10478"),("2015-05-08","Yasir","Wong","Dr.","71729"),("2015-03-01","Chase","Johnston","Mr.","88979"),("2015-10-26","Nissim","Valenzuela","Mr.","27639"),("2016-09-24","Price","Vinson","Ms.","66330"),("2016-09-06","Steven","Eaton","Ms.","71619"),("2016-10-08","Richard","Sears","Dr.","87108"),("2015-11-17","Nathan","Haynes","Mr.","56308");
+INSERT INTO `employee` (`DateOfBirth`,`F_name`,`L_name`,`Title`,`Salary`) VALUES ("2016-08-04","Zachary","Sampson","Ms.","60938"),("2015-03-04","Alan","Warner","Ms.","29694"),("2015-10-07","Lucas","Haynes","Mrs.","68543"),("2016-09-12","Fritz","Knapp","Dr.","50364"),("2015-05-07","Demetrius","Ortiz","Dr.","38913"),("2016-09-15","Gareth","Anderson","Mr.","61534"),("2015-03-21","Jason","Barnes","Dr.","0840"),("2015-02-12","Vincent","Delgado","Mrs.","7564"),("2016-09-19","Shad","Simon","Dr.","73631"),("2015-02-24","Arthur","Houston","Dr.","91257");
+INSERT INTO `employee` (`DateOfBirth`,`F_name`,`L_name`,`Title`,`Salary`) VALUES ("2014-12-28","Arthur","Holman","Dr.","65042"),("2016-10-05","Jelani","Knight","Dr.","87328"),("2014-11-11","Brock","Mcdowell","Mr.","22142"),("2015-10-18","Maxwell","English","Ms.","9710"),("2015-09-12","Leroy","Solis","Mr.","84206"),("2016-06-17","Laith","Cunningham","Mr.","76104"),("2015-11-24","Tobias","Singleton","Mrs.","1573"),("2016-08-15","Ezekiel","Solis","Dr.","74438"),("2015-07-01","Oliver","Rollins","Mrs.","79025"),("2016-08-31","Amir","Burnett","Ms.","81338");
+
 INSERT INTO employee_billable VALUES('1','10','');
 INSERT INTO employee_billable VALUES('2','5','');
 INSERT INTO employee_billable VALUES('3','2.5','');
 INSERT INTO employee_billable VALUES('4','100','');
 INSERT INTO employee_billable VALUES('5','25','');
 INSERT INTO employee_billable VALUES('6','15','');
-INSERT INTO employee VALUES('','1995-09-14','Employee','Seven','Mr','sales','15000');
-INSERT INTO employee VALUES('','1995-09-14','Employee','Eight','Mr','sales','15000');
-INSERT INTO employee VALUES('','1995-09-14','Employee','Nine','Mr','sales','15000');
-INSERT INTO employee VALUES('','1995-09-14','Employee','Ten','Mr','sales','15000');
+
 INSERT INTO employee_sales VALUES('7','0.1','70000');
 INSERT INTO employee_sales VALUES('8','0.2','80000');
 INSERT INTO employee_sales VALUES('9','0.2','90000');

@@ -2,7 +2,7 @@ package com.Lightman.Data;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Select;
-
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 
@@ -21,5 +21,8 @@ public interface IEmployeeSystemMapper {
 	  @Result(property="salary", column="Salary")
 	 })
 	 public List<Employee> getAllEmployees();
+	 
+	 @Delete("DELETE FROM employee WHERE employee_id=#{employeeId}")
+	 public void deleteEmployeeWith(Integer employeeId);
 
 }
