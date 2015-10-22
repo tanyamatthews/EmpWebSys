@@ -5,11 +5,31 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
-
-import admin.Admin;
+import java.sql.*;
 
 public class Driver {
+	
+	/*
+	 * Get All users from database
+	 */
+	public void printAllUsers(Connection connection){
 
+		try {
+			Statement create = connection.createStatement();
+			ResultSet result = create.executeQuery("Select * from users");
+			
+			while(result.next()){
+				System.out.println(result.getString(2));
+			}
+		} catch (SQLException e) {
+			System.out.println("Unable to get all user");
+			e.printStackTrace();
+		}
+		
+	}
+	/*
+	 * Insert User into Database
+	 */
 	public void insertUser(User user, Connection connection){
 		
 		try {
