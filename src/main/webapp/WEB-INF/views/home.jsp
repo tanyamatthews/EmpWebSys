@@ -16,7 +16,11 @@
 	
 	</div>
 
+<<<<<<< HEAD
 	<form action="login-process" method="POST" class="modal-form">
+=======
+	<form action="dashboard" method="POST">
+>>>>>>> f38c50fa19bf914be1e84239a3daa38a17b08b07
 		<fieldset>
 			<legend class="sr-only">Login form</legend>
 			<div class="form__group clearfix">

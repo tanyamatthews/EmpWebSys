@@ -55,9 +55,10 @@ public class Driver {
 	/**
 	 * Check if the password and user matches in the database
 	 */
-	public String checkUsernameAndPassword(Connection connection, String userName, String password){
+	public Boolean checkUsernameAndPassword(Connection connection, String userName, String password){
 		
-		String msg = "Access Denied, Please try again";
+		Boolean loginSuccessfull = false;
+		
 		//Sql statement to validate user credentials
 		String query = "SELECT fullName, lastLogin FROM users WHERE userName=? AND password=?";
 		PreparedStatement checkUser;
@@ -71,22 +72,21 @@ public class Driver {
 			ResultSet result = checkUser.executeQuery();
 			
 			if (result.next()){
-			 String fullName = result.getString(1);
 			 Timestamp date = result.getTimestamp(2);
 			 
-			 msg = fullName+" Successfully Logged in!";
+			 loginSuccessfull = true;
 			 
 			 if (date != null){ 
 				 updateLastLoginTimeStamp(connection, userName, password);
 			 }
 			} else{
-				msg = "Access Denied, Please try again";
+				loginSuccessfull = false;
 			}
 		} catch (SQLException e) {
-			msg = "Access Denied, Please try again";
+			loginSuccessfull = false;
 			e.printStackTrace();
 		}
-		return msg;
+		return loginSuccessfull;
 	}
 	
 	/*
