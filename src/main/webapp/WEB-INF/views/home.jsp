@@ -4,9 +4,8 @@
 <head>
 	<title>Login</title>
 	<link href="<c:url value="/resources/main.css" />" rel="stylesheet">
-	
 </head>
-<body>
+<body class="modal-body">
 
 <div class="container login">
 
@@ -16,11 +15,8 @@
 	
 	</div>
 
-<<<<<<< HEAD
-	<form action="login-process" method="POST" class="modal-form">
-=======
-	<form action="dashboard" method="POST">
->>>>>>> f38c50fa19bf914be1e84239a3daa38a17b08b07
+	<form class="modal-form" action="dashboard" method="POST" >
+
 		<fieldset>
 			<legend class="sr-only">Login form</legend>
 			<div class="form__group clearfix">

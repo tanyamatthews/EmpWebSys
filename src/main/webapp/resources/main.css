@@ -96,8 +96,11 @@ html{
 }
 
 body{
-	background-color: #3b4664;
 	font-family: 'Roboto', 'Open Sans', sans-serif';
+}
+
+.modal-body{
+	background-color: #3b4664;
 }
 
 /*Login page------------------------------------------
@@ -108,7 +111,6 @@ body{
 	color:white;
 	font-size: 3.6em;
 	font-weight:800;
-	
 }
 
 .modal-form{
@@ -134,7 +136,6 @@ label{
 }
 
 input{
-	box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.13);
 	border: 1px solid rgba(150,150,150,0.76);
 	border-radius: 2px;
 	padding-left: 25px;
@@ -145,7 +146,7 @@ input{
 }
 
 input:focus, input:active{
-	box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.63);
+	box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.43);
 	border: 1px solid 3b4664;
 }
 
@@ -170,23 +171,22 @@ input, .btn{
 }
 
 .form__group{
-	margin: 20px 0;
+	margin: 25px 0;
 }
 
 /*Admin page-----------------------------------------
 ----------------------------------------------------*/
 
 main {
-  width:960px;
+  width:100%;
   padding: 30px;
   margin: 0 auto;
   background: #fff;
-  margin-top:30px;
 }
 
 section {
   display: none;
-  padding: 20px 0 0;
+  padding: 25px 0 0;
   border-top: 1px solid #ddd;
 }
 
@@ -205,7 +205,7 @@ label:hover {
 input:checked + label {
   color: #555;
   border: 1px solid #ddd;
-  border-top: 2px solid #b6da4d;
+  border-top: 3px solid #b6da4d;
   border-bottom: 1px solid #fff;
 }
 
@@ -220,6 +220,17 @@ input:checked + label {
 
 .tab-item{
 	padding: 15px;
+}
+
+.medium{
+	width:500px;
+}
+
+section h1{
+	font-size: 2.8em;
+	color: rgba(0,0,0,0.8);
+	margin-top:25px;
+	margin-bottom:25px;
 }
 
 

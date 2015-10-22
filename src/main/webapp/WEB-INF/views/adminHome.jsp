@@ -31,38 +31,40 @@
   
   <input id="tab6" type="radio" name="tabs" class="sr-only">
   <label for="tab6" class="tab-item">Assign project to employee</label>
-  
-  
-    
+ 
   <section id="content1">
   
   <h1>Add Employee</h1>
 
-<form action="addEmployee" method="POST">
+<form action="addEmployee" class="medium" method="POST">
 	<fieldset>
-		<legend class="">Add Employee Form</legend>
-		<div class="">
+		<legend class="sr-only">Add Employee Form</legend>
+		<div class="form__group">
 			<label for="title">Title</label>
 			<input id="title" type="text" name="title">
 		</div>
-		<div class="">
+		<div class="form__group">
 			<label for="firstName">First Name</label>
 			<input id="firstName" type="text" name="firstName">
 		</div>
-		<div class="">
+		<div class="form__group">
+			<label for="surName">Surname</label>
+			<input id="surName" type="text" name="surName">
+		</div>
+		<div class="form__group">
 			<label for="lastName">Password</label>
 			<input id="lastName" type="text" name="lastName">
 		</div>
-		<div class="">
+		<div class="form__group">
 			<label for="dob">Date of Birth</label>
 			<input id="dob" type="date" name="dob">
 		</div>
 		
-		<div class="">
+		<div class="form__group">
 			<label for="salary">Salary</label>
 			<input id="salary" type="number" name="salary">
 		</div>
-		<input type="submit" name="addSubmit" value="Add Employee" class=""/>
+		<input type="submit" name="addSubmit" value="Add Employee" class="btn"/>
 	</fieldset>
 </form>
 
@@ -72,14 +74,14 @@
   
   <h1>Delete Employee</h1>
 
-<form action="deleteEmployee" method="POST">
+<form action="deleteEmployee" class="medium" method="POST">
 	<fieldset>
-		<legend class="">Add Employee Form</legend>
-		<div class="">
+		<legend class="sr-only">Add Employee Form</legend>
+		<div class="form__group">
 			<label for="employeeId">Employee ID</label>
 			<input id="employeeId" type="number" name="employeeId">
 		</div>
-		<input type="submit" name="deleteSubmit" value="Delete Employee" class=""/>
+		<input type="submit" name="deleteSubmit" value="Delete Employee" class="btn"/>
 	</fieldset>
 </form>
   
@@ -89,35 +91,35 @@
   
   <h1>Update Employee</h1>
 
-<form action="updateEmployee" method="POST">
+<form action="updateEmployee" class="medium" method="POST">
 	<fieldset>
-		<legend class="">Update Employee Form</legend>
-		<div class="">
+		<legend class="sr-only">Update Employee Form</legend>
+		<div class="form__group">
 			<label for="employeeId">Employee ID</label>
 			<input id="employeeId" type="number" name="employeeId">
 		</div>
-		<div class="">
+		<div class="form__group">
 			<label for="title">Title</label>
 			<input id="title" type="text" name="title">
 		</div>
-		<div class="">
+		<div class="form__group">
 			<label for="firstName">First Name</label>
 			<input id="firstName" type="text" name="firstName">
 		</div>
-		<div class="">
+		<div class="form__group">
 			<label for="lastName">Password</label>
 			<input id="lastName" type="text" name="lastName">
 		</div>
-		<div class="">
+		<div class="form__group">
 			<label for="dob">Date of Birth</label>
 			<input id="dob" type="date" name="dob">
 		</div>
 		
-		<div class="">
+		<div class="form__group">
 			<label for="salary">Salary</label>
 			<input id="salary" type="number" name="salary">
 		</div>
-		<input type="submit" name="addSubmit" value="Add Employee" class=""/>
+		<input type="submit" name="addSubmit" value="Add Employee" class="btn"/>
 	</fieldset>
 </form>
 
@@ -127,8 +129,8 @@
   
   <h1>Show Employees</h1>
 
-<form action="fetchEmployees" method="GET">
-	<input type="submit" name="fetchEmployeesSubmit" value="Show Employees" class=""/>
+<form action="fetchEmployees" class="medium" method="GET">
+	<input type="submit" name="fetchEmployeesSubmit" value="Show Employees" class="btn"/>
 </form>
  
   </section>
@@ -137,8 +139,8 @@
   
   <h1>Show Projects</h1>
 
-<form action="fetchProjects" method="GET">
-	<input type="submit" name="fetchProjectsSubmit" value="Show Projects" class=""/>
+<form action="fetchProjects" class="medium" method="GET">
+	<input type="submit" name="fetchProjectsSubmit" value="Show Projects" class="btn"/>
 </form>
   
   </section>
@@ -147,7 +149,7 @@
   
   <h1>Assign Employee to Project</h1>
 
-<form action="assignEmployee" method="POST">
+<form action="assignEmployee" class="medium" method="POST">
 	<fieldset>
 	<legend class="">Assign Employee Form</legend>
 	<div class="">
@@ -158,7 +160,7 @@
 		<label for="projectId">Project Id</label>
 		<input id="projectId" type="number" name="projectId">
 	</div>
-	<input type="submit" name="assignEmployeeSubmit" value="Assign Employee" class=""/>
+	<input type="submit" name="assignEmployeeSubmit" value="Assign Employee" class="btn"/>
 	</fieldset>
 </form>
   
