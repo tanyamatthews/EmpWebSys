@@ -81,6 +81,24 @@ public class HomeController {
 	}
 	
 	
+	@RequestMapping(value = "/deleteEmployee", method = RequestMethod.POST)
+	public String deleteEmployee(Model model, HttpServletRequest request, HttpServletResponse response) {
+		
+
+		try {
+			int id = Integer.parseInt(request.getParameter("employeeId"));
+			Driver db = new Driver();
+			db.removeEmployeeFromDatabase(id, dataSource.getConnection());
+			System.out.println("employee has been removed");
+			
+		} catch (SQLException e) {
+			System.out.println("employee NOT removed");
+			e.printStackTrace();
+		}
+
+		return "adminHome";
+	}
+	
 	
 	/**
 	 * 

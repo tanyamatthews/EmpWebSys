@@ -81,6 +81,27 @@ public class Driver {
 	}
 	
 	/**
+	 * Remove Employee from the database based on id
+	 * 
+	 * @param id
+	 */
+	public void removeEmployeeFromDatabase(int id, Connection connection) {
+	
+		try {
+			PreparedStatement removeEmployee = connection.prepareStatement("call deleteEmployee (?)");
+
+			removeEmployee.setInt(1, id);
+			removeEmployee.executeUpdate();
+			System.out.println("Employee " + id + " has been deleted.");
+
+		} catch (SQLException e) {
+			System.out.println("Unable to remove employee.");
+			e.printStackTrace();
+		}
+
+	}
+	
+	/**
 	 * Takes a normal date and returns a SQL date
 	 * 
 	 * @param date
