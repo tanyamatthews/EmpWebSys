@@ -63,6 +63,8 @@ public class HomeController {
 			Driver db = new Driver();
 			msg = db.checkUsernameAndPassword(connection, request.getParameter("username"),
 					request.getParameter("password"));
+			System.out.println(request.getParameter("username"));
+			System.out.println(request.getParameter("password"));
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

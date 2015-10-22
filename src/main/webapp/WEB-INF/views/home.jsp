@@ -93,7 +93,7 @@ body{
 
 	<h1>Login</h1>
 	
-	<form action="login-process" method="POST">
+	<form>
 		<fieldset>
 			<legend></legend>
 			<div class="form__group">
