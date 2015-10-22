@@ -55,6 +55,8 @@ public class HomeController {
 	@RequestMapping(value = "/addEmployee", method = RequestMethod.POST)
 	public String addEmployee(Model model, HttpServletRequest request, HttpServletResponse response) {
 		
+		
+		
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 		Date dateOfBirth;
 		try {
@@ -66,7 +68,8 @@ public class HomeController {
 			Employee employee = new Employee(dateOfBirth,forname, surname,title,null ,salary);
 			Driver db = new Driver();
 			db.addEmployeeINDatabase(employee, dataSource.getConnection());
-			
+			String msg ="Employee "+forname+" "+surname+" has been added";
+			model.addAttribute("msg", msg);
 			System.out.println("employee Added");
 			
 		} catch (ParseException e) {

@@ -33,7 +33,7 @@
   <label for="tab6" class="tab-item">Assign project to employee</label>
  
   <section id="content1">
-  <p class="alert success">{msg}<p>
+  <p class="alert success">${msg}<p>
   <h1>Add Employee</h1>
 
 <form action="addEmployee" class="medium" method="POST">
