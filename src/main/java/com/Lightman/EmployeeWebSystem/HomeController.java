@@ -62,26 +62,25 @@ public class HomeController {
 		String chrisUser = "chrisr";
 		String currentUser = request.getParameter("username");
 		String currentPassword = request.getParameter("password");
-		String home = "Dashboard";
-		
+		String home = "home";
+		String correctLogin = "YES";
 		
 				
 		try {
 			Connection connection = dataSource.getConnection();
 			Driver db = new Driver();
-			msg = db.checkUsernameAndPassword(connection, currentUser,
-					currentPassword);
+			msg = db.checkUsernameAndPassword(connection, currentUser, currentPassword);
 			System.out.println(currentUser);
 			System.out.println(currentPassword);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		
-		if(currentUser.equals(adminUser)){
+		if(currentUser.equals(adminUser) && msg.equals(correctLogin)){
 			home = "adminHome";
-		}else if(currentUser.equals(financeUser)){
+		}else if(currentUser.equals(financeUser) && msg.equals(correctLogin)){
 			home = "financeHome";
-		}else if(currentUser.equals(chrisUser)){
+		}else if(currentUser.equals(chrisUser) && msg.equals(correctLogin)){
 			home= "chrisHome";
 		}
 		

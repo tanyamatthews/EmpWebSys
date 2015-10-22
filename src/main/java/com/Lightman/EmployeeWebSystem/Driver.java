@@ -51,7 +51,7 @@ public class Driver {
 			 String fullName = result.getString(1);
 			 Timestamp date = result.getTimestamp(2);
 			 
-			 msg = fullName+" Successfully Logged in!";
+			 msg = "YES";
 			 
 			 if (date != null){ 
 				 updateLastLoginTimeStamp(connection, userName, password);
