@@ -57,19 +57,36 @@ public class HomeController {
 	@RequestMapping(value = "/login-process", method = RequestMethod.POST)
 	public String loginProcess(Model m, HttpServletRequest request, HttpServletResponse response) {
 		String msg = "";
-
+		String adminUser = "admin";
+		String financeUser = "finance";
+		String chrisUser = "chrisr";
+		String currentUser = request.getParameter("username");
+		String currentPassword = request.getParameter("password");
+		String home = "Dashboard";
+		
+		
+				
 		try {
 			Connection connection = dataSource.getConnection();
 			Driver db = new Driver();
-			msg = db.checkUsernameAndPassword(connection, request.getParameter("username"),
-					request.getParameter("password"));
-			System.out.println(request.getParameter("username"));
-			System.out.println(request.getParameter("password"));
+			msg = db.checkUsernameAndPassword(connection, currentUser,
+					currentPassword);
+			System.out.println(currentUser);
+			System.out.println(currentPassword);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
+		
+		if(currentUser.equals(adminUser)){
+			home = "adminHome";
+		}else if(currentUser.equals(financeUser)){
+			home = "financeHome";
+		}else if(currentUser.equals(chrisUser)){
+			home= "chrisHome";
+		}
+		
 		m.addAttribute("msg", msg);
-		return "Dashboard";
+		return home;
+
 	}
 }

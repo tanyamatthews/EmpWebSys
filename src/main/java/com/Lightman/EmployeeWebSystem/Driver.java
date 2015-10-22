@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 
+import admin.Admin;
+
 public class Driver {
 
 	public void insertUser(User user, Connection connection){
@@ -38,6 +40,7 @@ public class Driver {
 		//Sql statement to validate user credentials
 		String query = "SELECT fullName, lastLogin FROM users WHERE userName=? AND password=?";
 		PreparedStatement checkUser;
+		
 		try {
 			checkUser = connection.prepareStatement(query);
 			checkUser.setString(1, userName);
@@ -49,7 +52,9 @@ public class Driver {
 			if (result.next()){
 			 String fullName = result.getString(1);
 			 Timestamp date = result.getTimestamp(2);
+			 
 			 msg = fullName+" Successfully Logged in!";
+			 
 			 if (date != null){ 
 				 updateLastLoginTimeStamp(connection, userName, password);
 			 }
@@ -62,6 +67,7 @@ public class Driver {
 		}
 		return msg;
 	}
+	
 	/*
 	 * Update Time stamp on Login
 	 */
