@@ -16,7 +16,7 @@
 	
 	</div>
 
-	<form action="login-process" method="POST">
+	<form action="dashboard" method="POST">
 		<fieldset>
 			<legend class="sr-only">Login form</legend>
 			<div class="form__group clearfix">

@@ -54,36 +54,37 @@ public class HomeController {
 	}
 **/
 
-	@RequestMapping(value = "/login-process", method = RequestMethod.POST)
+	@RequestMapping(value = "/dashboard", method = RequestMethod.POST)
 	public String loginProcess(Model m, HttpServletRequest request, HttpServletResponse response) {
-		String msg = "";
+		String msg = "Access Denied";
 		String adminUser = "admin";
 		String financeUser = "finance";
 		String chrisUser = "chrisr";
 		String currentUser = request.getParameter("username");
 		String currentPassword = request.getParameter("password");
 		String home = "home";
-		String correctLogin = "YES";
+		Boolean loginSuccessfull = false;
 		
-				
+		/*
+		 * Checking credentials to determine if logged in or not		
+		 */
 		try {
 			Connection connection = dataSource.getConnection();
 			Driver db = new Driver();
-			msg = db.checkUsernameAndPassword(connection, currentUser, currentPassword);
-			System.out.println(currentUser);
-			System.out.println(currentPassword);
+			loginSuccessfull = db.checkUsernameAndPassword(connection, currentUser, currentPassword);
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		
-		if(currentUser.equals(adminUser) && msg.equals(correctLogin)){
+		if((loginSuccessfull) && (currentUser.equals(adminUser))){
 			home = "adminHome";
-		}else if(currentUser.equals(financeUser) && msg.equals(correctLogin)){
+		}else if((loginSuccessfull) && (currentUser.equals(financeUser))){
 			home = "financeHome";
-		}else if(currentUser.equals(chrisUser) && msg.equals(correctLogin)){
+		}else if((loginSuccessfull) && (currentUser.equals(chrisUser))){
 			home= "chrisHome";
 		}
-		
+
 		m.addAttribute("msg", msg);
 		return home;
 
