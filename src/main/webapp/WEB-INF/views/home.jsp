@@ -55,16 +55,104 @@ table {
 	border-spacing: 0;
 }
 
-
-body{
-
+html{
+	font-size: 62.5%;
 }
 
 
+body{
+	background-color: #3b4664;
+	font-family: 'Roboto', 'Open Sans', sans-serif';
+}
 
 .container{
 	width:960px;
 	margin: 0 auto;
+	margin-top:30px;
+}
+
+.centerText{
+	text-align:center;
+}
+
+.login h1{
+	color:white;
+	font-size: 3.6em;
+	font-weight:800;
+	
+}
+
+form{
+	margin-left:230px;
+	display:block;
+	background-color: white;
+	border: 1px solid rgba(9,9,9,0.12);
+	box-shadow: 0px 6px 9px 0px rgba(0,0,0,0.40);
+	border-radius: 8px;
+	padding: 30px 30px;
+	margin-top:35px;
+	width: 450px;
+	max-width:450px;
+}
+
+label, input, .btn{
+	font-size: 1.7em;
+}
+
+label{
+	display:block;
+	color: rgba(0,0,0,0.7);
+}
+
+input{
+	box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.13);
+	border: 1px solid rgba(150,150,150,0.86);
+	border-radius: 2px;
+	padding-left: 25px;
+	margin-top: 25px;
+	color: rgba(0,0,0,0.8);
+	transition: all 0.5s ease-in-out;
+	margin-bottom:5px;
+}
+
+input:focus, input:active{
+	box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.63);
+	border: 1px solid 3b4664;
+}
+
+input, .btn{
+	width: 100%;
+	padding: 12px 12px;
+}
+
+.btn{
+	background-color: #b6da4d;
+	color: white;
+	transition: all 0.3s ease-in-out;
+	border-radius:4px;
+	text-align:center;
+	font-weight:800;
+	border:none;
+	font-size: 2.0em;
+}
+
+.btn:hover{
+	background-color: #87B933;
+}
+
+.form__group{
+	margin: 20px 0;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
 }
 
 /*Clearfix */
@@ -82,29 +170,33 @@ body{
 .clearfix { display: block; }
 /* close commented backslash hack */
 
-
-
 </style>
 
 </head>
 <body>
 
-<div class="container">
+<div class="container login">
 
-	<h1>Login</h1>
+	<div class="centerText">
 	
-	<form>
+		<h1>Login</h1>
+	
+	</div>
+
+	
+	
+	<form action="login-process" method="POST">
 		<fieldset>
-			<legend></legend>
-			<div class="form__group">
-				<label for="username">UserName</label>
-				<input id="username" type="text">
+			<legend class="sr-only">Login form</legend>
+			<div class="form__group clearfix">
+				<label for="username">Username</label>
+				<input id="username" type="text" name="username">
 			</div>
-			<div class="form__group">
+			<div class="form__group clearfix">
 				<label for="password">Password</label>
-				<input id="password" type="text">
+				<input id="password" type="text" name="password">
 			</div>
-			<input type="submit" name="submit" value="Login"/>
+			<input type="submit" name="submit" value="Login" class="btn"/>
 		</fieldset>
 	</form>
 
