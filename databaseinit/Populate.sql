@@ -47,7 +47,7 @@ INSERT INTO theProcs values('showProjectEmployees','Project ID','Lists employees
 INSERT INTO theProcs values('freeEmployees','Month(MM), Year(YYYY)','Shows employees that aren''t on a project on a given month');
 INSERT INTO theProcs values('calcEmployees','Month(MM), Year(YYYY)','Calculates the total income for a given month');
 INSERT INTO users (fullName, userName, password) VALUES ('Admin Account', 'admin', 'password1');
-INSERT INTO users (fullName, userName, password) VALUES ('Finance Account', 'admin', 'password2');
+INSERT INTO users (fullName, userName, password) VALUES ('Finance Account', 'finance', 'password2');
 INSERT INTO users (fullName, userName, password) VALUES ('Chris Reid', 'chrisr', 'password3');
 
 DELIMITER // 
