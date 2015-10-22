@@ -4,6 +4,8 @@
 <head>
 	<title>Login</title>
 	
+	
+	
 <style type="text/css">
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -83,7 +85,7 @@ body{
 }
 
 form{
-	margin-left:230px;
+	margin-left:23%;
 	display:block;
 	background-color: white;
 	border: 1px solid rgba(9,9,9,0.12);
@@ -106,7 +108,7 @@ label{
 
 input{
 	box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.13);
-	border: 1px solid rgba(150,150,150,0.86);
+	border: 1px solid rgba(150,150,150,0.76);
 	border-radius: 2px;
 	padding-left: 25px;
 	margin-top: 25px;
@@ -194,13 +196,15 @@ input, .btn{
 			</div>
 			<div class="form__group clearfix">
 				<label for="password">Password</label>
-				<input id="password" type="text" name="password">
+				<input id="password" type="password" name="password">
 			</div>
 			<input type="submit" name="submit" value="Login" class="btn"/>
 		</fieldset>
 	</form>
 
 </div>
+
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,100' rel='stylesheet' type='text/css'>
 
 </body>
 </html>
