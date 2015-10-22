@@ -10,7 +10,7 @@
 <link href="<c:url value="/resources/main.css" />" rel="stylesheet">
 
 </head>
-<body>
+<body class="modal-body">
 
 <main>
   
@@ -33,10 +33,11 @@
   <label for="tab6" class="tab-item">Assign project to employee</label>
  
   <section id="content1">
-  
+  <p class="alert success">{msg}<p>
   <h1>Add Employee</h1>
 
 <form action="addEmployee" class="medium" method="POST">
+
 	<fieldset>
 		<legend class="sr-only">Add Employee Form</legend>
 		<div class="form__group">
@@ -151,7 +152,7 @@
 
 <form action="assignEmployee" class="medium" method="POST">
 	<fieldset>
-	<legend class="">Assign Employee Form</legend>
+	<legend class="sr-only">Assign Employee Form</legend>
 	<div class="">
 		<label for="employeeId">Employee ID</label>
 		<input id="employeeId" type="number" name="employeeId">

@@ -178,10 +178,12 @@ input, .btn{
 ----------------------------------------------------*/
 
 main {
-  width:100%;
+  width:960px;
   padding: 30px;
   margin: 0 auto;
   background: #fff;
+  margin-top:30px;
+  border-radius:4px;
 }
 
 section {
@@ -190,12 +192,19 @@ section {
   border-top: 1px solid #ddd;
 }
 
+section label{
+	font-size: 1.4em;
+}
+
+section form .btn{
+	width:500px;
+}
+
 label {
   display: inline-block;
   text-align: center;
   border: 1px solid transparent;
 }
-
 
 label:hover {
   color: #888;
@@ -231,6 +240,18 @@ section h1{
 	color: rgba(0,0,0,0.8);
 	margin-top:25px;
 	margin-bottom:25px;
+}
+
+.alert{
+	display:block;
+	padding: 20px 20px;
+	border-radius:3px;
+	font-size: 1.5em;
+}
+
+.success{
+	background-color: #dff0d8;
+	color: #3c763d;
 }
 
 
