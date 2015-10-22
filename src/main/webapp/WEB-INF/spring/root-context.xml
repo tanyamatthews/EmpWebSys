@@ -5,4 +5,14 @@
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 		
+	<bean id="dataSource"
+		class="org.apache.commons.dbcp2.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName"
+			value="com.mysql.jdbc.Driver">
+		</property>
+		<property name="url" value="jdbc:mysql://localhost/world"></property>
+		<property name="username" value="EmployeeUser"></property>
+		<property name="password" value="password"></property>
+	</bean>
 </beans>
