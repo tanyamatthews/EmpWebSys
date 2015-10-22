@@ -127,8 +127,8 @@
   
   <h1>Show Employees</h1>
 
-<form action="fetchEmployees" class="medium" method="GET">
-	<input type="submit" name="fetchEmployeesSubmit" value="Show Employees" class="btn"/>
+<form action="allEmployees" class="medium" method="GET">
+	<input type="submit" value="Show Employees" class="btn"/>
 </form>
  
   </section>

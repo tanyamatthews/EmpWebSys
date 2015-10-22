@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,6 +21,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.Lightman.Data.IEmployeeSystemMapper;
+
 /**
  * Handles requests for the application home page.
  */
@@ -28,6 +31,9 @@ public class HomeController {
 
 	@Autowired
 	private DataSource dataSource;
+	
+	@Autowired
+	public IEmployeeSystemMapper employeeSystem;
 
 
 	/**
@@ -36,6 +42,12 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model) {
 		return "home";
+	}
+	
+	@RequestMapping(value = "/allEmployees", method = RequestMethod.GET)
+	public String getAllEmployees(Model model) {
+		model.addAttribute("employees", employeeSystem.getAllEmployees());
+		return "allEmployees";
 	}
 
 /**
@@ -137,6 +149,7 @@ public class HomeController {
 		
 		if((loginSuccessfull) && (currentUser.equals(adminUser))){
 			msg = "Login Successful";
+			request.getSession().setAttribute("login", true);
 			home = "adminHome";
 		}else if((loginSuccessfull) && (currentUser.equals(financeUser))){
 			msg = "Login Successful";
@@ -150,6 +163,28 @@ public class HomeController {
 		return home;
 
 	}
+	
+	@RequestMapping(value = "/dashboard", method = RequestMethod.GET)
+	public String showDashboard(HttpServletRequest request) {
+		
+		if (request.getSession().getAttribute("login") != null){
+			return "adminHome";
+		}
+		return "redirect:/";
+	}
+	
+	
+	
+	
+	
+	
+	/**
+	 * 
+	 * @param m
+	 * @param request
+	 * @param response
+	 * @return
+	 */
 	
 	@RequestMapping(value="/addProject", method= RequestMethod.POST)
 	public String addProjectProcess(Model m, HttpServletRequest request, HttpServletResponse response){
