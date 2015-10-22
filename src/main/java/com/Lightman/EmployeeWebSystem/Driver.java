@@ -6,8 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 
-import admin.Admin;
-
 public class Driver {
 
 	public void insertUser(User user, Connection connection){
