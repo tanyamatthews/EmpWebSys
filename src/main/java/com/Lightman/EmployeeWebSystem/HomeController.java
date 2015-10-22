@@ -11,8 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -53,28 +57,19 @@ public class HomeController {
 **/
 	
 	@RequestMapping(value = "/addEmployee", method = RequestMethod.POST)
-	public String addEmployee(Model model, HttpServletRequest request, HttpServletResponse response) {
+	public String addEmployee(Model model, @ModelAttribute Employee employee) {
+		
+		System.out.println(employee);
 		
 		
-		
-		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-		Date dateOfBirth;
 		try {
-			dateOfBirth = formatter.parse(request.getParameter("dob"));
-			String title = request.getParameter("title");
-			String forname = request.getParameter("firstName");
-			String surname = request.getParameter("lastName");
-			double salary = Double.parseDouble(request.getParameter("salary"));	
-			Employee employee = new Employee(dateOfBirth,forname, surname,title,null ,salary);
+
 			Driver db = new Driver();
 			db.addEmployeeINDatabase(employee, dataSource.getConnection());
-			String msg ="Employee "+forname+" "+surname+" has been added";
+			String msg ="Employee "+employee.getFirstName()+" "+employee.getSurName()+" has been added";
 			model.addAttribute("msg", msg);
 			System.out.println("employee Added");
 			
-		} catch (ParseException e) {
-			System.out.println("employee NOT Added");
-			e.printStackTrace();
 		} catch (SQLException e) {
 			System.out.println("employee NOT Added");
 			e.printStackTrace();
@@ -82,6 +77,13 @@ public class HomeController {
 
 		return "adminHome";
 	}
+	
+	@InitBinder
+    public void initBinder(WebDataBinder binder) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        dateFormat.setLenient(false);
+        binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, false));
+    }
 	
 	
 	@RequestMapping(value = "/deleteEmployee", method = RequestMethod.POST)

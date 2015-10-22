@@ -63,9 +63,9 @@ public class Driver {
 			// SQL statement to add user
 			PreparedStatement addEmployee = connection.prepareStatement("call addEmployee(?,?,?,?,?,?)");
 
-			addEmployee.setDate(1, getSQLDate(employee.getDateOfBirth()));
-			addEmployee.setString(2, employee.getFName());
-			addEmployee.setString(3, employee.getSName());
+			addEmployee.setDate(1, getSQLDate(employee.getDob()));
+			addEmployee.setString(2, employee.getFirstName());
+			addEmployee.setString(3, employee.getSurName());
 			addEmployee.setString(4, employee.getTitle());
 			addEmployee.setBlob(5, employee.getPicture());
 			addEmployee.setDouble(6, employee.getSalary());

@@ -52,10 +52,7 @@
 			<label for="surName">Surname</label>
 			<input id="surName" type="text" name="surName">
 		</div>
-		<div class="form__group">
-			<label for="lastName">Password</label>
-			<input id="lastName" type="text" name="lastName">
-		</div>
+
 		<div class="form__group">
 			<label for="dob">Date of Birth</label>
 			<input id="dob" type="date" name="dob">
