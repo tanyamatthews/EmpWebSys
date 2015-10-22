@@ -42,13 +42,13 @@ public class ProjectDriver{
 		
 	}
 	
-	public void removeProject(Project project, Connection c){
+	public void removeProject(int id, Connection c){
 		String query = "CALL removeEmployee(?);";
 
 		try{
 			PreparedStatement removeProject = c.prepareStatement(query);
 			
-			removeProject.setInt(1,  project.getProjectId());
+			removeProject.setInt(1, id);
 			removeProject.executeUpdate();
 		}catch(SQLException e){
 			e.printStackTrace();

@@ -145,4 +145,68 @@ public class HomeController {
 		return home;
 
 	}
+	
+	@RequestMapping(value="/addProject", method= RequestMethod.POST)
+	public String addProjectProcess(Model m, HttpServletRequest request, HttpServletResponse response){
+
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+		Date eDate;
+		Date sDate;
+		try{
+			sDate = formatter.parse(request.getParameter("startDate"));
+			eDate = formatter.parse(request.getParameter("endDate"));
+			String name = request.getParameter("projectName");
+			Project project = new Project(name, sDate, eDate);
+			ProjectDriver db = new ProjectDriver();
+			db.addProject(project, dataSource.getConnection());
+
+			System.out.println("Project added.");
+		}catch(ParseException e){
+			System.out.println("Project NOT added.");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return "adminHome";
+
+	}
+
+	@RequestMapping(value="/updateProject", method= RequestMethod.POST)
+	public String updateProjectProcess(Model m, HttpServletRequest request, HttpServletResponse response){
+
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+		Date eDate;
+		Date sDate;
+		try{
+			sDate = formatter.parse(request.getParameter("startDate"));
+			eDate = formatter.parse(request.getParameter("endDate"));
+			String name = request.getParameter("projectName");
+			Project project = new Project(name, sDate, eDate);
+			ProjectDriver db = new ProjectDriver();
+			db.updateProject(project, dataSource.getConnection());
+		}catch(ParseException pe){
+			System.out.println("Project NOT updated");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "adminHome";
+	}
+
+	@RequestMapping(value="/deleteProject", method= RequestMethod.POST)
+	public String deleteProjectProcess(Model m, HttpServletRequest request, HttpServletResponse response){
+
+		try{
+			int id = Integer.parseInt(request.getParameter("projectId"));
+			ProjectDriver db = new ProjectDriver();
+			db.removeProject(id, dataSource.getConnection());
+			System.out.println("Project " + id + " removed");
+		}catch(SQLException e){
+			System.out.println("Project not removed");
+		}
+
+		return "adminHome";
+
+	}
 }
