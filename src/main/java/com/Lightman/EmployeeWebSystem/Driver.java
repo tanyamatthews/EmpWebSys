@@ -53,6 +53,45 @@ public class Driver {
 	}
 	
 	/**
+	 * Save Employee in Database
+	 * 
+	 * @param employee
+	 */
+	public void addEmployeeINDatabase(Employee employee, Connection connection) {
+
+		try {
+			// SQL statement to add user
+			PreparedStatement addEmployee = connection.prepareStatement("call addEmployee(?,?,?,?,?,?)");
+
+			addEmployee.setDate(1, getSQLDate(employee.getDateOfBirth()));
+			addEmployee.setString(2, employee.getFName());
+			addEmployee.setString(3, employee.getSName());
+			addEmployee.setString(4, employee.getTitle());
+			addEmployee.setBlob(5, employee.getPicture());
+			addEmployee.setDouble(6, employee.getSalary());
+
+			// Executing prepared statement
+			addEmployee.executeUpdate();
+			System.out.println("Employee has been added Successfully");
+
+		} catch (SQLException e) {
+			System.out.println("Unable to create Employee ");
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * Takes a normal date and returns a SQL date
+	 * 
+	 * @param date
+	 * @return
+	 */
+	private Date getSQLDate(java.util.Date date) {
+		java.sql.Date sqlDate = new java.sql.Date(date.getTime());
+		return sqlDate;
+	}
+
+	/**
 	 * Check if the password and user matches in the database
 	 */
 	public Boolean checkUsernameAndPassword(Connection connection, String userName, String password){

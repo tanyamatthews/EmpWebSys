@@ -50,6 +50,16 @@ public class HomeController {
 		return "accountCreated";
 	}
 **/
+	
+	@RequestMapping(value = "/addEmployee", method = RequestMethod.POST)
+	public String addEmployee(Model model, HttpServletRequest request, HttpServletResponse response) {
+		
+		
+		return "changethis;
+	}
+	
+	
+	
 	/**
 	 * 
 	 * @param model

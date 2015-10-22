@@ -14,7 +14,6 @@
 		<h1>Login</h1>
 	
 	</div>
-
 	<form class="modal-form" action="dashboard" method="POST" >
 
 		<fieldset>
