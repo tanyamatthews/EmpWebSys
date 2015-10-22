@@ -2,13 +2,14 @@ package com.Lightman.EmployeeWebSystem;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -54,8 +55,29 @@ public class HomeController {
 	@RequestMapping(value = "/addEmployee", method = RequestMethod.POST)
 	public String addEmployee(Model model, HttpServletRequest request, HttpServletResponse response) {
 		
-		
-		return "changethis;
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+		Date dateOfBirth;
+		try {
+			dateOfBirth = formatter.parse(request.getParameter("dob"));
+			String title = request.getParameter("title");
+			String forname = request.getParameter("firstName");
+			String surname = request.getParameter("lastName");
+			double salary = Double.parseDouble(request.getParameter("salary"));	
+			Employee employee = new Employee(dateOfBirth,forname, surname,title,null ,salary);
+			Driver db = new Driver();
+			db.addEmployeeINDatabase(employee, dataSource.getConnection());
+			
+			System.out.println("employee Added");
+			
+		} catch (ParseException e) {
+			System.out.println("employee NOT Added");
+			e.printStackTrace();
+		} catch (SQLException e) {
+			System.out.println("employee NOT Added");
+			e.printStackTrace();
+		}
+
+		return "adminHome";
 	}
 	
 	

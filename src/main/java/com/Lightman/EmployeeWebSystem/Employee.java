@@ -15,19 +15,19 @@ public class Employee {
 	private String title;
 	private Blob picture;
 	private double salary;
-	private String department;
+
 
 	public Employee(){}
 
 	//Constructor for normal employee
-	public Employee(Date newDateOfBirth, String newFName, String newSName, String newTitle, Blob newPicture, double newSalary, String newDepartment) {
+	public Employee(Date newDateOfBirth, String newFName, String newSName, String newTitle, Blob newPicture, double newSalary) {
 		setDateOfBirth(newDateOfBirth);
 		setFName(newFName);
 		setSName(newSName);
 		setTitle(newTitle);
 		setPicture(newPicture);
 		setSalary(newSalary);
-		setDepartment(newDepartment);
+
 	}
 	//Constructor for normal Employee's with id passed in as well.
 	public Employee(int id, Date newDateOfBirth, String newFName, String newSName, String newTitle, Blob newPicture,
@@ -39,7 +39,6 @@ public class Employee {
 		setTitle(newTitle);
 		setPicture(newPicture);
 		setSalary(newSalary);
-		setDepartment(addDepartment);	
 	}
 
 	//Default constructor
@@ -129,13 +128,6 @@ public class Employee {
 		this.salary = salary;
 	}
 
-	private String getDepartment() {
-		return department;
-	}
-
-	private void setDepartment(String department) {
-		this.department = department;
-	}
 
 	@Override
 	public String toString() {
