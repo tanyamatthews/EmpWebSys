@@ -16,6 +16,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -62,11 +63,13 @@ public class HomeController {
 		return str;
 
 	}
-
-	@RequestMapping(value = "/updateEmployee", method = RequestMethod.POST)
-	public String updateEmployee(Model model, @RequestParam(value = "id") String id) {
-		int employeeId = Integer.parseInt(id);
-		System.out.println(employeeSystem.getEmployee(employeeId));
+	
+	@RequestMapping("/employee/{employeeId}/update")
+	public String countries(Model model,@PathVariable("employeeId") String employeeId){
+		
+		int id = Integer.parseInt(employeeId);
+		model.addAttribute("employee", employeeSystem.getEmployee(id));
+		System.out.println(employeeSystem.getEmployee(id));
 		return "editEmployee";
 	}
 
