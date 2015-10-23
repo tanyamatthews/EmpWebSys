@@ -29,7 +29,7 @@
 
 <body>
 
-    <div class="container">
+    <div class="container" id="container">
 
         <h1>All Employees</h1>
         <div class="table-responsive">
@@ -49,6 +49,7 @@
                         <td>£${employee.salary}</td>
                         <td>
                             <button id="${employee.employeeId}" type="button" class="btn btn-danger" onclick="deleteEmployee(this.id);">Delete</button>
+                            <button id="${employee.employeeId}" type="button" class="btn btn-danger" onclick="updateEmployee(this.id);">Update</button>
                         </td>
                     </tr>
                 </#list>
@@ -79,6 +80,26 @@
                 }
             });
         }
+        
+        function updateEmployee(passedID) {
+            var id = passedID;
+            
+            $.ajax({
+                type: "POST",
+                url: "updateEmployee",
+                data: "id=" + id,
+                success: function(response) {
+                	$('#container').load(response);
+                },
+                error: function(e) {
+					alert("Error updating Employee");
+					$('#container').load(response);
+                }
+            });
+        }
+        
+        
+        
     </script>
 </body>
 
