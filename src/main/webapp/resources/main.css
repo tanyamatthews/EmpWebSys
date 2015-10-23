@@ -59,6 +59,11 @@ table {
     margin: 0 auto;
 }
 
+.md-contaier{
+	width:500px;
+	margin: 0 auto;
+}
+
 .centerText{
 	text-align:center;
 }
@@ -115,7 +120,7 @@ svg{
     margin: 50px 0;
 }
          
-.login h1{
+.login h1, .options h1{
 	color:white;
 	font-size: 3.6em;
 	font-weight:800;
@@ -239,6 +244,7 @@ section h1{
 	color: rgba(0,0,0,0.6);
 	margin-top:30px;
 	margin-bottom:25px;
+	fill: rgba(0,0,0,0.3);
 }
 
 .alert{
@@ -267,6 +273,49 @@ section input{
 .section label{
     font-size: 1.6em;
 }
+
+.optionsMenu{
+	display:block;
+	margin-top:60px;
+}
+
+.options h1{
+	font-size: 4.6em;
+	color: rgba(0,0,0,0.4);
+	font-weight:800;
+	margin-top: 50px;
+	margin-botom:50px;
+}
+
+.optionsMenu li{
+	list-style-type:none;
+	text-align:center;
+	transition: 0.5s ease-in.out;
+	cursor:pointer;
+	display:inline-block;
+	width:100%;
+	height:100%;
+}
+
+
+.optionsMenu a:last-child{
+	margin-left: 20px;
+}
+
+.optionsMenu a:hover{
+	background-color:#4ac0a4;
+	color:white;
+}
+
+.optionsMenu a{
+	padding: 35px 35px;
+	text-decoration:none;
+	font-size: 2.2em;
+	display:inline-block;
+	color: rgba(0,0,0,0.6);
+	background-color:white;
+}
+
 
 
 
