@@ -33,7 +33,7 @@
   <label for="tab6" class="tab-item">Assign project to employee</label>
  
   <section id="content1">
-  <p class="alert success">{msg}<p>
+  <p class="alert success">${msg}<p>
   <h1>Add Employee</h1>
 
 <form action="addEmployee" class="medium" method="POST">
@@ -52,10 +52,7 @@
 			<label for="surName">Surname</label>
 			<input id="surName" type="text" name="surName">
 		</div>
-		<div class="form__group">
-			<label for="lastName">Password</label>
-			<input id="lastName" type="text" name="lastName">
-		</div>
+
 		<div class="form__group">
 			<label for="dob">Date of Birth</label>
 			<input id="dob" type="date" name="dob">
@@ -130,8 +127,8 @@
   
   <h1>Show Employees</h1>
 
-<form action="fetchEmployees" class="medium" method="GET">
-	<input type="submit" name="fetchEmployeesSubmit" value="Show Employees" class="btn"/>
+<form action="allEmployees" class="medium" method="GET">
+	<input type="submit" value="Show Employees" class="btn"/>
 </form>
  
   </section>

@@ -4,9 +4,27 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Menu</title>
 </head>
 <body>
-Chris Home
+
+<h1>View Projects without Employees</h1>
+
+<form action="projectsNoEmployees" class="" method="POST">
+	<fieldset>
+		<legend class="">View Projects without Employees</legend>
+		<input type="submit" name="projNoEmpsSubmit" value="View Projects" class=""/>
+	</fieldset>
+</form>
+
+<h1>View Employees without Projects</h1>
+
+<form action="employeesNoProjects" class="" method="POST">
+	<fieldset>
+		<legend class="">View Employees without Projects</legend>
+		<input type="submit" name="empsNoProjSubmit" value="View Employees" class=""/>
+	</fieldset>
+</form>
+
 </body>
 </html>
