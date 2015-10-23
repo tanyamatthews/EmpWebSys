@@ -89,11 +89,11 @@
                 url: "updateEmployee",
                 data: "id=" + id,
                 success: function(response) {
-                	$('#container').load(response);
+                	
                 },
                 error: function(e) {
 					alert("Error updating Employee");
-					$('#container').load(response);
+					
                 }
             });
         }

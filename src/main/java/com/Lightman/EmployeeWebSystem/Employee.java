@@ -17,32 +17,7 @@ public class Employee {
 	public Employee(){
 		
 	}
-
-//	//Constructor for normal employee
-//	public Employee(Date newDateOfBirth, String newFName, String newSName, String newTitle, Blob newPicture, double newSalary) {
-//		setDateOfBirth(newDateOfBirth);
-//		setFName(newFName);
-//		setSName(newSName);
-//		setTitle(newTitle);
-//		setPicture(newPicture);
-//		setSalary(newSalary);
-//
-//	}
-//	//Constructor for normal Employee's with id passed in as well.
-//	public Employee(int id, Date newDateOfBirth, String newFName, String newSName, String newTitle, Blob newPicture,
-//			double newSalary, String addDepartment) {
-//		setEmployeeId(id);
-//		setDateOfBirth(newDateOfBirth);
-//		setFName(newFName);
-//		setSName(newSName);
-//		setTitle(newTitle);
-//		setPicture(newPicture);
-//		setSalary(newSalary);
-//	}
-
-	//Getters and Setters
 	
-
 	public int getEmployeeId() {
 		return employeeId;
 	}

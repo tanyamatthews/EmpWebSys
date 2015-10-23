@@ -44,6 +44,15 @@ public class HomeController {
 	public String home(Model model) {
 		return "home";
 	}
+	
+	
+	/**
+	 * Simply selects the home view to render by returning its name.
+	 */
+	@RequestMapping(value = "/admin-home", method = RequestMethod.GET)
+	public String adminHome(Model model) {
+		return "adminOptions";
+	}
 
 	@RequestMapping(value = "/deleteEmployee", method = RequestMethod.GET)
 	public @ResponseBody String deleteEmployee(@RequestParam(value = "id") String id) {
@@ -147,7 +156,7 @@ public class HomeController {
 		String chrisUser = "chrisr";
 		String currentUser = request.getParameter("username");
 		String currentPassword = request.getParameter("password");
-		String home = "home";
+		String home = "adminOptions";
 		Boolean loginSuccessfull = false;
 
 		/*
@@ -165,13 +174,10 @@ public class HomeController {
 		if ((loginSuccessfull) && (currentUser.equals(adminUser))) {
 			msg = "Login Successful";
 			request.getSession().setAttribute("login", true);
-			home = "adminHome";
 		} else if ((loginSuccessfull) && (currentUser.equals(financeUser))) {
 			msg = "Login Successful";
-			home = "financeHome";
 		} else if ((loginSuccessfull) && (currentUser.equals(chrisUser))) {
 			msg = "Login Successful";
-			home = "chrisHome";
 		}
 
 		model.addAttribute("msg", msg);
