@@ -73,9 +73,16 @@ public class ProjectDriver{
 		}
 	}
 	
-	public String employeesNoProjects(){
+	public void employeesNoProjects(Connection c){
 		String query = "CALL showEmployeesWithoutProjects();";
-		return query;
+		
+		try{
+			PreparedStatement showEmpsNoProjects = c.prepareStatement(query);
+			
+			showEmpsNoProjects.executeUpdate();
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
 	}
 
 	public String projectsNoEmployees(){

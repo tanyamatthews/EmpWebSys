@@ -1,11 +1,9 @@
 package com.Lightman.EmployeeWebSystem;
 
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
+import java.sql.SQLException;
+import java.sql.Connection;
+import java.text.SimpleDateFormat;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -24,6 +22,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.Lightman.Data.IEmployeeSystemMapper;
+
+import freemarker.core.ParseException;
 
 /**
  * Handles requests for the application home page.
@@ -211,15 +211,21 @@ public class HomeController {
 			db.addProject(project, dataSource.getConnection());
 
 			System.out.println("Project added.");
-		} catch (ParseException e) {
-			System.out.println("Project NOT added.");
 		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (java.text.ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
 		return "adminHome";
 
+	}
+	
+	private Date getSQLDate(java.util.Date date) {
+		java.sql.Date sqlDate = new java.sql.Date(date.getTime());
+		return sqlDate;
 	}
 
 	@RequestMapping(value = "/updateProject", method = RequestMethod.POST)
@@ -235,9 +241,10 @@ public class HomeController {
 			Project project = new Project(name, sDate, eDate);
 			ProjectDriver db = new ProjectDriver();
 			db.updateProject(project, dataSource.getConnection());
-		} catch (ParseException pe) {
-			System.out.println("Project NOT updated");
 		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (java.text.ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
