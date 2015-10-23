@@ -23,9 +23,9 @@ public class ProjectDriver{
 		return sqlDate;
 	}
 	
-	public void addProject(Project project, Connection c){
+	public void addProjectProcess(Project project, Connection c){
 	
-		String query = "CALL insertEmployee(?,?,?);";
+		String query = "CALL addProject(?,?,?);";
 		
 		try {
 			PreparedStatement addProject = c.prepareStatement(query);
@@ -42,8 +42,8 @@ public class ProjectDriver{
 		
 	}
 	
-	public void removeProject(int id, Connection c){
-		String query = "CALL removeEmployee(?);";
+	public void removeProjectProcess(int id, Connection c){
+		String query = "CALL removeProject(?);";
 
 		try{
 			PreparedStatement removeProject = c.prepareStatement(query);
@@ -55,7 +55,7 @@ public class ProjectDriver{
 		}
 	}
 	
-	public void updateProject(Project project, Connection c){
+	public void updateProjectProcess(Project project, Connection c){
 		String query = "CALL updateProject(?,?,?,?);";
 		
 		try{

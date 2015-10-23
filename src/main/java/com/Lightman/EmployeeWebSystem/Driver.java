@@ -39,17 +39,13 @@ public class Driver {
 					"INSERT INTO users (fullName, userName, password) Values(?,?,?)");
 			addUser.setString(1,user.getFullName());
 			addUser.setString(2,user.getUserName());
-			addUser.setString(3, user.getPassword());
-			
+			addUser.setString(3, user.getPassword());			
 			//Executing prepared statement
 			addUser.executeUpdate();
-			System.out.println("User "+user.getFullName()+" has been added Successfully");
-			
+			System.out.println("User "+user.getFullName()+" has been added Successfully");			
 		} catch (SQLException e) {
-			System.out.println("Unable to create user ");
-	
-		}
-		
+			System.out.println("Unable to create user ");	
+		}		
 	}
 	
 	/**
@@ -58,7 +54,6 @@ public class Driver {
 	 * @param employee
 	 */
 	public void addEmployeeINDatabase(Employee employee, Connection connection) {
-
 		try {
 			// SQL statement to add user
 			PreparedStatement addEmployee = connection.prepareStatement("call addEmployee(?,?,?,?,?,?)");
@@ -69,11 +64,9 @@ public class Driver {
 			addEmployee.setString(4, employee.getTitle());
 			addEmployee.setBlob(5, employee.getPicture());
 			addEmployee.setDouble(6, employee.getSalary());
-
 			// Executing prepared statement
 			addEmployee.executeUpdate();
 			System.out.println("Employee has been added Successfully");
-
 		} catch (SQLException e) {
 			System.out.println("Unable to create Employee ");
 			e.printStackTrace();
@@ -86,19 +79,15 @@ public class Driver {
 	 * @param id
 	 */
 	public void removeEmployeeFromDatabase(int id, Connection connection) {
-	
 		try {
 			PreparedStatement removeEmployee = connection.prepareStatement("call deleteEmployee (?)");
-
 			removeEmployee.setInt(1, id);
 			removeEmployee.executeUpdate();
 			System.out.println("Employee " + id + " has been deleted.");
-
 		} catch (SQLException e) {
 			System.out.println("Unable to remove employee.");
 			e.printStackTrace();
 		}
-
 	}
 	
 	/**

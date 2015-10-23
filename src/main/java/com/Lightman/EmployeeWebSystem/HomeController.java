@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.Lightman.Data.IEmployeeSystemMapper;
+import com.Lightman.Data.IProjectSystemMapper;
 
 import freemarker.core.ParseException;
 
@@ -36,6 +37,9 @@ public class HomeController {
 
 	@Autowired
 	public IEmployeeSystemMapper employeeSystem;
+	
+	@Autowired 
+	public IProjectSystemMapper projectSystem;
 
 	/**
 	 * Simply selects the home view to render by returning its name.
@@ -43,6 +47,11 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model) {
 		return "home";
+	}
+	
+	@RequestMapping(value = "/projectMenu", method= RequestMethod.GET)
+	public String projectMenu(Model model){
+		return "adminProject";
 	}
 
 	@RequestMapping(value = "/deleteEmployee", method = RequestMethod.GET)
@@ -69,6 +78,17 @@ public class HomeController {
 			return "allEmployees";
 		}
 		return "redirect:/";
+	}
+	
+	@RequestMapping(value="/allProjects", method = RequestMethod.GET)
+	public String getAllProjects(Model model, HttpServletRequest request){
+		
+	//	if(request.getSession().getAttribute("login") != null){
+			model.addAttribute("projects", projectSystem.getAllProjects());
+			return "allProjects";
+	//	}
+		
+	//	return "redirect:/";
 	}
 
 	/**
@@ -197,7 +217,7 @@ public class HomeController {
 	 */
 
 	@RequestMapping(value = "/addProject", method = RequestMethod.POST)
-	public String addProjectProcess(Model m, HttpServletRequest request, HttpServletResponse response) {
+	public String addProject(Model m, HttpServletRequest request, HttpServletResponse response) {
 
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 		Date eDate;
@@ -208,7 +228,7 @@ public class HomeController {
 			String name = request.getParameter("projectName");
 			Project project = new Project(name, sDate, eDate);
 			ProjectDriver db = new ProjectDriver();
-			db.addProject(project, dataSource.getConnection());
+			db.addProjectProcess(project, dataSource.getConnection());
 
 			System.out.println("Project added.");
 		} catch (SQLException e) {
@@ -219,7 +239,7 @@ public class HomeController {
 			e.printStackTrace();
 		}
 
-		return "adminHome";
+		return "adminProject";
 
 	}
 	
@@ -229,7 +249,7 @@ public class HomeController {
 	}
 
 	@RequestMapping(value = "/updateProject", method = RequestMethod.POST)
-	public String updateProjectProcess(Model m, HttpServletRequest request, HttpServletResponse response) {
+	public String updateProject(Model m, HttpServletRequest request, HttpServletResponse response) {
 
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 		Date eDate;
@@ -240,7 +260,7 @@ public class HomeController {
 			String name = request.getParameter("projectName");
 			Project project = new Project(name, sDate, eDate);
 			ProjectDriver db = new ProjectDriver();
-			db.updateProject(project, dataSource.getConnection());
+			db.updateProjectProcess(project, dataSource.getConnection());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -248,22 +268,22 @@ public class HomeController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return "adminHome";
+		return "adminProject";
 	}
 
 	@RequestMapping(value = "/deleteProject", method = RequestMethod.POST)
-	public String deleteProjectProcess(Model m, HttpServletRequest request, HttpServletResponse response) {
+	public String removeProject(Model m, HttpServletRequest request, HttpServletResponse response) {
 
 		try {
 			int id = Integer.parseInt(request.getParameter("projectId"));
 			ProjectDriver db = new ProjectDriver();
-			db.removeProject(id, dataSource.getConnection());
+			db.removeProjectProcess(id, dataSource.getConnection());
 			System.out.println("Project " + id + " removed");
 		} catch (SQLException e) {
 			System.out.println("Project not removed");
 		}
 
-		return "adminHome";
+		return "adminProject";
 
 	}
 }
