@@ -23,13 +23,13 @@ public interface IEmployeeSystemMapper {
 	 })
 	 public List<Employee> getAllEmployees();
 	 
-	 @Select("SELECT employee_id as employeeId, F_name as firstName, L_name as surName, Title as title, Salary as salary FROM employee WHERE employee_id=#{employeeId}")
+	 @Select("SELECT employee_id as employeeId, F_name as firstName, L_name as surName, Title as title, Salary as salary, DateOfBirth as dob FROM employee WHERE employee_id=#{employeeId}")
 	 public Employee getEmployee(Integer employeeId);
 	 
 	 @Delete("DELETE FROM employee WHERE employee_id=#{employeeId}")
 	 public void deleteEmployeeWith(Integer employeeId);
 	 
-	 @Update("UPDATE BLOG SET F_name=#{firstName} WHERE WHERE employee_id=#{employeeId")
+	 @Update("UPDATE employee SET F_name=#{firstName} WHERE WHERE employee_id=#{employeeId")
 	 public void updateBlog(Employee employee);
 
 }

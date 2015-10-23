@@ -49,7 +49,7 @@
                         <td>£${employee.salary}</td>
                         <td>
                             <button id="${employee.employeeId}" type="button" class="btn btn-danger" onclick="deleteEmployee(this.id);">Delete</button>
-                            <button id="${employee.employeeId}" type="button" class="btn btn-danger" onclick="updateEmployee(this.id);">Update</button>
+                            <a href='${rc.contextPath}/employee/${employee.employeeId}/update'>Edit
                         </td>
                     </tr>
                 </#list>
@@ -89,11 +89,11 @@
                 url: "updateEmployee",
                 data: "id=" + id,
                 success: function(response) {
-                	$('#container').load(response);
+                	
                 },
                 error: function(e) {
 					alert("Error updating Employee");
-					$('#container').load(response);
+					
                 }
             });
         }

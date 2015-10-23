@@ -44,8 +44,8 @@
                     <tr>
                         <td>${project.projectId}</td>
                         <td>${project.name}</td>
-                        <td>${project.startDate}</td>
-                        <td>£${project.endDate}</td>
+                        <td>${project.startDate?string('yyyy-MM-dd')}</td> 
+                        <td>${project.endDate?string('yyyy-MM-dd')}</td>
                     </tr>
                 </#list>
             </table>

@@ -16,6 +16,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -53,6 +54,14 @@ public class HomeController {
 	public String projectMenu(Model model){
 		return "adminProject";
 	}
+	
+	/**
+	 * Simply selects the home view to render by returning its name.
+	 */
+	@RequestMapping(value = "/admin-home", method = RequestMethod.GET)
+	public String adminHome(Model model) {
+		return "adminOptions";
+	}
 
 	@RequestMapping(value = "/deleteEmployee", method = RequestMethod.GET)
 	public @ResponseBody String deleteEmployee(@RequestParam(value = "id") String id) {
@@ -62,11 +71,13 @@ public class HomeController {
 		return str;
 
 	}
-
-	@RequestMapping(value = "/updateEmployee", method = RequestMethod.POST)
-	public String updateEmployee(Model model, @RequestParam(value = "id") String id) {
-		int employeeId = Integer.parseInt(id);
-		System.out.println(employeeSystem.getEmployee(employeeId));
+	
+	@RequestMapping("/employee/{employeeId}/update")
+	public String countries(Model model,@PathVariable("employeeId") String employeeId){
+		
+		int id = Integer.parseInt(employeeId);
+		model.addAttribute("employee", employeeSystem.getEmployee(id));
+		System.out.println(employeeSystem.getEmployee(id));
 		return "editEmployee";
 	}
 
@@ -167,7 +178,7 @@ public class HomeController {
 		String chrisUser = "chrisr";
 		String currentUser = request.getParameter("username");
 		String currentPassword = request.getParameter("password");
-		String home = "home";
+		String home = "adminOptions";
 		Boolean loginSuccessfull = false;
 
 		/*
@@ -185,13 +196,10 @@ public class HomeController {
 		if ((loginSuccessfull) && (currentUser.equals(adminUser))) {
 			msg = "Login Successful";
 			request.getSession().setAttribute("login", true);
-			home = "adminHome";
 		} else if ((loginSuccessfull) && (currentUser.equals(financeUser))) {
 			msg = "Login Successful";
-			home = "financeHome";
 		} else if ((loginSuccessfull) && (currentUser.equals(chrisUser))) {
 			msg = "Login Successful";
-			home = "chrisHome";
 		}
 
 		model.addAttribute("msg", msg);
